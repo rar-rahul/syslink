@@ -1,4 +1,4 @@
-# Sysnet-style IT services site — Next.js 16 + Tailwind CSS 4
+# IT services site — Next.js 16 + Tailwind CSS 4
 
     npm install
     npm run dev       # http://localhost:3000
