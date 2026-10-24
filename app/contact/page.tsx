@@ -23,7 +23,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="container-x -mt-10 grid gap-4 md:grid-cols-3">
+      <section className="container-x -mt-1 grid gap-4 md:grid-cols-3">
         {cards.map(({ I, t, v }) => (
           <div key={t} className="flex gap-4 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-line">
             <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-pink/10 text-brand-pink"><I size={20} /></span>
