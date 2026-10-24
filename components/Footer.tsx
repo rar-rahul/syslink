@@ -1,18 +1,29 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import SubscribeForm from "./SubscribeForm";
+
 import { brand, services } from "@/lib/data";
+import CircuitBackground from "./CircuitBackground";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white/75">
+    <footer className="relative isolate overflow-hidden bg-navy text-white/75">
+      {/* Circuit traces behind everything, fading out toward the top */}
+      <CircuitBackground
+        className="pointer-events-none absolute inset-0 -z-10 opacity-60 [mask-image:linear-gradient(to_top,black_30%,transparent)]"
+        color="45, 212, 191"
+        accent="251, 146, 60"
+        density={30000}
+        speed={130}
+      />
+
       {/* contact strip (Techigent-style: Find us / Call us / Mail us) */}
       <div className="border-b border-white/10">
         <div className="container-x grid gap-8 py-12 md:grid-cols-3">
           {[
             { I: MapPin, t: "Find us", v: [brand.address] },
             { I: Phone, t: "Call us", v: brand.phones },
-            { I: Mail, t: "Mail us", v: [brand.email] },
+            { I: Mail, t: "Mail us", v: brand.email },
           ].map(({ I, t, v }) => (
             <div key={t} className="flex gap-4">
               <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/10 text-brand-green"><I size={20} /></span>

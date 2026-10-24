@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { services } from "@/lib/data";
+import NetworkBackground from "@/components/NetworkBackground";
+import HexRipple from "@/components/HexRipple";
+import HexPulseNetwork from "@/components/HexPulseNetwork";
 
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() { return services.map((s) => ({ slug: s.slug })); }
@@ -20,18 +23,28 @@ export default async function ServicePage({ params }: Props) {
   const others = services.filter((x) => x.slug !== s.slug).slice(0, 3);
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-navy py-24 sm:py-32">
-        <Image src={`/images/${s.img}.svg`} alt="" fill priority sizes="100vw" className="-z-10 object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy/95 via-navy/70 to-navy/10" />
-        <div className="container-x max-w-4xl">
-          <h1 className="text-4xl font-semibold !text-white sm:text-6xl">{s.title}</h1>
+      <section className="relative isolate min-h-[340px] overflow-hidden bg-gradient-to-br from-[#07131f] via-navy to-[#0d3b45] py-24 sm:py-32">
+        {/* Particles + network */}
+        {/* <NetworkBackground
+          className="pointer-events-none absolute inset-0 z-0"
+          color="120, 200, 255"
+          density={9000}
+          linkDistance={130}
+          speed={0.5}
+        /> */}
+        <HexPulseNetwork className="pointer-events-none absolute inset-0 z-0" />
+        {/* Soft fade on the left so the title stays readable */}
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-navy/70 via-navy/20 to-transparent" />
+
+        <div className="container-x relative z-20 max-w-4xl">
+          <h1 className="animate-rise text-4xl font-semibold !text-white sm:text-6xl">{s.title}</h1>
           <p className="mt-5 max-w-2xl text-lg text-white/80">{s.text}</p>
         </div>
       </section>
 
       <section className="container-x grid items-center gap-12 py-20 lg:grid-cols-2">
         <div className="relative aspect-[3/2] overflow-hidden rounded-3xl shadow-xl">
-          <Image src={`/images/${s.img}.svg`} alt={s.title} fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+          <Image src={`/images/${s.img}.svg`} alt={s.title} fill priority sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
         </div>
         <div>
           <h2 className="text-3xl font-semibold">What you get</h2>

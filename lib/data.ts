@@ -1,9 +1,13 @@
 export const brand = {
   name: "SYSLINK",
   tagline: "Plan, migrate, implement, manage and scale your IT infrastructure with one trusted partner.",
-  address: "889/9, Nanda Nagar, Indore(M.P) — 452011",
-  phones: ["+91 9893114656", "+91 9669696711"],
-  email: "syslinkglobal@gmail.com",
+  address: "Nanda Nagar, Indore(M.P) — 452011",
+  phones: ["+91 6262045111", "+91 6262037222"],
+  email: ["support@syslinkglobal.com", "info@syslinkglobal.com"],
+  supportEmail:"support@syslinkglobal.com",
+  salesNumber:"+91 6262042444",
+  whatsappNumber:"+91 9893114556",
+
 };
 
 export type Service = { slug: string; title: string; text: string; img: string; icon: string; intro: string; includes: string[] };
@@ -192,11 +196,8 @@ export const stats = [
 ];
 
 export const leaders = [
-  { name: "Aarav Mehta", role: "Chief Executive Officer", img: "leader-1", bio: "Leads strategy and sustained growth. Replace this with a real biography." },
-  { name: "Neha Kulkarni", role: "Chief Operating Officer", img: "leader-2", bio: "Runs delivery across branches and service centers. Replace with real copy." },
-  { name: "Rohan Deshmukh", role: "VP, Strategic Interventions", img: "leader-3", bio: "Drives transformation through process, automation and analytics. Replace with real copy." },
-  { name: "Isha Verma", role: "Head, Culture & Communication", img: "leader-4", bio: "Builds the team culture and external voice. Replace with real copy." },
-  { name: "Vikram Joshi", role: "CFO & Head, HR Operations", img: "leader-5", bio: "Looks after finance and people operations. Replace with real copy." },
+  { name: "Prashant Rao", role: "Director", img: "leader-1", bio: "Leads strategy and sustained growth. Replace this with a real biography." },
+  { name: "Vinod Yadav", role: "Director", img: "leader-2", bio: "Runs delivery across branches and service centers. Replace with real copy." },
 ];
 
 export const partners = ["LENOVO", "IBM", "ACER", "TCS", "KYNDRYL", "SAMSUNG", "DXC", "HUGHES", "DELL", "HP", "PANTUM", "MSI"];

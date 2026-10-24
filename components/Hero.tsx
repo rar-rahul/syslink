@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import HexBackground from "./HexBackground";
 import NetworkBackground from "./NetworkBackground";
 import { slides } from "@/lib/data";
 
