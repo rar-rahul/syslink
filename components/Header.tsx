@@ -31,8 +31,9 @@ export default function Header() {
               </ul>
             )}
           </div>
+           <Link href="/about" className="hover:text-brand-pink">About Us</Link>
           <Link href="/#footprint" className="hover:text-brand-pink">Footprint</Link>
-          <Link href="/#leadership" className="hover:text-brand-pink">Leadership</Link>
+          {/* <Link href="/#leadership" className="hover:text-brand-pink">Leadership</Link> */}
           <Link href="/#partners" className="hover:text-brand-pink">Partners</Link>
           <Link href="/contact" className="btn btn-pink !py-2.5">Contact Us</Link>
         </nav>

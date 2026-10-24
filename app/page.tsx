@@ -6,6 +6,7 @@ import FootprintTabs from "@/components/FootprintTabs";
 import Leadership from "@/components/Leadership";
 import Counter from "@/components/Counter";
 import { model, partners, scale, services, stats, values } from "@/lib/data";
+import CircuitBackground from "@/components/CircuitBackground";
 
 function Title({ small, big, light }: { small?: string; big: string; light?: boolean }) {
   return (
@@ -70,7 +71,15 @@ export default function Home() {
       </section>
 
       {/* model */}
-      <section className="bg-navy py-24">
+      <section className="bg-navy py-24 relative isolate overflow-hidden">
+        {/* Circuit traces behind everything, fading out toward the top */}
+              <CircuitBackground
+                className="pointer-events-none absolute inset-0 -z-10 opacity-60 [mask-image:linear-gradient(to_top,black_30%,transparent)]"
+                color="45, 212, 191"
+                accent="251, 146, 60"
+                density={30000}
+                speed={130}
+              />
         <div className="container-x">
           <Title light small="Flexibility to deploy your resources" big="The delivery model" />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -106,12 +115,12 @@ export default function Home() {
       </section>
 
       {/* leadership */}
-      <section id="leadership" className="bg-mist py-24">
+      {/* <section id="leadership" className="bg-mist py-24">
         <div className="container-x">
           <Title small="Working together across the nation to make a difference" big="Leadership" />
           <Leadership />
         </div>
-      </section>
+      </section> */}
 
       {/* partners */}
       <section id="partners" className="overflow-hidden py-20">

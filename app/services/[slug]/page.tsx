@@ -52,7 +52,7 @@ export default async function ServicePage({ params }: Props) {
           <ul className="mt-7 space-y-3">
             {s.includes.map((i) => (
               <li key={i} className="flex items-center gap-4 rounded-xl border border-line p-4 font-medium text-navy">
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-green/15 text-brand-green"><Check size={16} /></span>{i}
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-mist text-brand-pink"><Check size={16} /></span>{i}
               </li>
             ))}
           </ul>

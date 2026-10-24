@@ -2,10 +2,10 @@ export const brand = {
   name: "SYSLINK",
   tagline: "Plan, migrate, implement, manage and scale your IT infrastructure with one trusted partner.",
   address: "Nanda Nagar, Indore(M.P) — 452011",
-  phones: ["+91 6262045111", "+91 6262037222"],
+  phones: ["+91 6262045111", "+91 6262042444"],
   email: ["support@syslinkglobal.com", "info@syslinkglobal.com"],
   supportEmail:"support@syslinkglobal.com",
-  salesNumber:"+91 6262042444",
+  salesNumber:"+91 6262037222",
   whatsappNumber:"+91 9893114556",
 
 };

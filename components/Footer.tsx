@@ -26,7 +26,7 @@ export default function Footer() {
             { I: Mail, t: "Mail us", v: brand.email },
           ].map(({ I, t, v }) => (
             <div key={t} className="flex gap-4">
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/10 text-brand-green"><I size={20} /></span>
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/10 text-brand-pink"><I size={20} /></span>
               <div><h4 className="font-semibold text-white">{t}</h4>{v.map((x) => <p key={x} className="text-sm">{x}</p>)}</div>
             </div>
           ))}

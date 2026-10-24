@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 type Row = { I: LucideIcon; t: string; v: { label: string; href?: string }[] };
 
 const tel = (s: string) => `tel:${s.replace(/[^+\d]/g, "")}`;
-const eyebrow = "text-sm font-semibold uppercase tracking-[0.25em] text-brand-green";
+const eyebrow = "text-sm font-semibold uppercase tracking-[0.25em] text-brand-pink";
 
 export default function ContactPage() {
   const whatsapp = `https://wa.me/${brand.whatsappNumber[0].replace(/\D/g, "")}`;
@@ -81,14 +81,14 @@ export default function ContactPage() {
           <ul className="mt-8 space-y-6">
             {rows.map(({ I, t, v }) => (
               <li key={t} className="flex gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-brand-green/10 text-brand-green">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-brand-green/10 text-brand-pink">
                   <I size={20} />
                 </span>
                 <div>
                   <h3 className="font-semibold text-navy">{t}</h3>
                   {v.map((x) =>
                     x.href ? (
-                      <a key={x.label} href={x.href} className="block font-medium text-brand-green hover:underline">
+                      <a key={x.label} href={x.href} className="block font-medium text-brand-pink hover:underline">
                         {x.label}
                       </a>
                     ) : (
@@ -146,7 +146,7 @@ export default function ContactPage() {
                     </dd>
                   ))} */}
                    <dd>
-                      <a href={tel(brand.salesNumber)} className="text-lg font-semibold text-brand-green hover:underline">
+                      <a href={tel(brand.salesNumber)} className="text-lg font-semibold text-brand-pink hover:underline">
                         {brand.salesNumber}
                       </a>
                     </dd>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                 <div className="py-4">
                   <dt className="text-xs font-semibold uppercase tracking-widest text-white/50">Email</dt>
                   <dd>
-                    <a href={`mailto:${brand.supportEmail}`} className="text-lg font-semibold text-brand-green hover:underline">
+                    <a href={`mailto:${brand.supportEmail}`} className="text-lg font-semibold text-brand-pink hover:underline">
                       {brand.supportEmail}
                     </a>
                   </dd>
