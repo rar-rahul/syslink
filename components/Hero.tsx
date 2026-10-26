@@ -64,7 +64,7 @@ export default function Hero() {
       {/* Layer 30: content */}
       <div className="container-x relative z-30 flex min-h-[calc(100svh-5rem)] items-center py-20">
         <div key={i} aria-live="polite" className="max-w-2xl animate-rise">
-          <p className="text-lg font-light text-brand-green sm:text-2xl">{slides[i].a}</p>
+          <p className="text-lg font-light text-brand-green sm:text-2xl"> {slides[i].a}</p>
           <h1 className="mt-2 text-4xl font-semibold leading-tight !text-white sm:text-6xl">{slides[i].b}</h1>
           <p className="mt-6 text-lg text-white/80">{slides[i].c}</p>
           <div className="mt-9 flex flex-wrap gap-3">

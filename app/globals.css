@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0b1f3a;
-  --color-navy-2: #12294a;
-  --color-brand-pink: #e6007e;
-  --color-brand-green: #7ac143;
+  /* Palette derived from the SYSLINK logo */
+  --color-navy: #120b3f;            /* logo tagline indigo: dark sections, headings */
+  --color-navy-2: #1b1357;          /* slightly lighter navy for cards on dark */
+  --color-brand-pink: #f59e0b;      /* ORANGE: primary CTA, accents (name kept so existing classes work) */
+  --color-brand-green: #12b5d6;     /* CYAN: secondary accent (name kept) */
+  --color-brand-orange-dark: #b45309; /* orange used as TEXT on white (accessible) */
+  --color-brand-red: #ef4444;       /* sparing highlights only */
+  --color-brand-gray: #5b5958;      /* logo charcoal */
   --color-mist: #f5f7fb;
   --color-line: #e2e8f0;
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
@@ -18,12 +22,17 @@
 html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
 body { @apply bg-white font-sans text-slate-600 antialiased; }
 h1, h2, h3, h4 { @apply text-navy; }
-:focus-visible { outline: 2px solid var(--color-brand-pink); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--color-brand-green); outline-offset: 3px; }
 
 .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
-.btn { @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-medium transition; }
-.btn-pink { @apply bg-brand-pink text-white hover:bg-[#c7006d]; }
-.btn-outline { @apply border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white; }
+.btn { @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition; }
+
+/* Primary: logo orange with navy text (white on orange fails contrast) */
+.btn-pink { @apply bg-brand-pink text-navy shadow-sm hover:bg-[#d98a06] hover:shadow-md; }
+
+/* Outline: readable on white; fills with orange on hover */
+.btn-outline { @apply border-2 border-brand-orange-dark text-brand-orange-dark hover:border-brand-pink hover:bg-brand-pink hover:text-navy; }
+
 .btn-white { @apply bg-white text-navy hover:bg-slate-100; }
 
 @media (prefers-reduced-motion: reduce) {
