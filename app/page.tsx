@@ -50,7 +50,7 @@ export default function Home() {
                 <div className="flex flex-col justify-center p-8 md:p-12">
                   <h3 className="mb-3 text-2xl font-semibold">{s.title}</h3>
                   <p className="mb-7 leading-relaxed">{s.text}</p>
-                  <Link href={`/services/${s.slug}`} className="btn btn-outline w-fit">Learn more</Link>
+                  <Link href={`/services/${s.slug}`} className="btn btn-outline w-fit">View details</Link>
                 </div>
               </article>
             ))}
