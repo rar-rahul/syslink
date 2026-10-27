@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { services } from "@/lib/data";
+import { services,solutions } from "@/lib/data";
 
 const links = [
   ["About Us", "/about"],
@@ -27,6 +27,7 @@ function Logo({ priority = false }: { priority?: boolean }) {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [dd, setDd] = useState(false);
+  const [ss, setSs] = useState(false);
   const [mobSvc, setMobSvc] = useState(false);
 
   useEffect(() => {
@@ -66,6 +67,27 @@ export default function Header() {
                 {services.map((s) => (
                   <li key={s.slug}>
                     <Link href={`/services/${s.slug}`} onClick={close} className="block px-5 py-2.5 hover:bg-mist hover:text-brand-orange-dark">
+                      {s.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <div className="relative" onMouseEnter={() => setSs(true)} onMouseLeave={() => setSs(false)}>
+            <button
+              aria-expanded={ss}
+              aria-haspopup="true"
+              onClick={() => setSs((v) => !v)}
+              className="flex items-center gap-1 py-7 hover:text-brand-orange-dark"
+            >
+              Solutions <ChevronDown size={14} className={`transition-transform ${ss ? "rotate-180" : ""}`} />
+            </button>
+            {ss && (
+              <ul className="absolute left-0 top-full w-80 rounded-b-xl border-t-2 border-brand-green bg-white py-2 shadow-xl">
+                {solutions.map((s) => (
+                  <li key={s.slug}>
+                    <Link href={`/solutions/${s.slug}`} onClick={close} className="block px-5 py-2.5 hover:bg-mist hover:text-brand-orange-dark">
                       {s.title}
                     </Link>
                   </li>

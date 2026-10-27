@@ -8,7 +8,7 @@ import {
   Wifi, Wrench, type LucideIcon,
 } from "lucide-react";
 import HexPulseNetwork from "@/components/HexPulseNetwork";
-import { brand, services } from "@/lib/data";
+import { brand, services,solutions } from "@/lib/data";
 import { defaultDelivery, serviceDetails } from "@/lib/service-details";
 import PageHero from "@/components/pageHero";
 

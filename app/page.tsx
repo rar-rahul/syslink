@@ -10,15 +10,13 @@ import Counter from "@/components/Counter";
 import CircuitBackground from "@/components/CircuitBackground";
 import { model, partners, services, stats, values } from "@/lib/data";
 
-const darkBg = "bg-gradient-to-br from-[#07131f] via-navy to-[#0d3b45]";
 
 /* ---------- helpers ---------- */
 function Title({ small, big, light, left }: { small?: string; big: string; light?: boolean; left?: boolean }) {
   return (
     <div className={`mb-12 max-w-3xl ${left ? "" : "mx-auto text-center"}`}>
       {small && <p className={`mb-2 text-sm font-medium text-brand-pink sm:text-base`}>{small}</p>}
-      <h2 className={`text-3xl font-semibold sm:text-4xl lg:text-5xl ${light ? "!text-white" : ""}`}>{big}</h2>
-    </div>
+<h4 className={`text-2xl font-semibold capitalize leading-tight tracking-tight text-balance sm:text-3xl lg:text-4xl ${light ? "!text-white" : ""}`}>{big}</h4>    </div>
   );
 }
 
@@ -41,6 +39,12 @@ const serviceIcons: Record<string, LucideIcon> = {
 const industries = ["Government", "Education", "Manufacturing", "Healthcare", "Enterprise", "Banking", "Retail", "Power & Utilities"];
 
 const aboutPoints = ["Audit, gap analysis and roadmap", "Migration with minimal disruption", "24x7 monitoring, security first"];
+const eyebrow = "text-xs font-semibold uppercase tracking-[0.25em] text-brand-green";
+const darkBg = "bg-gradient-to-br from-[#07131f] via-navy to-[#0d3b45]";
+
+const cardCls = `${darkBg} group relative isolate flex flex-col overflow-hidden rounded-3xl border border-white/10 p-7 text-white/75 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-brand-green/50 hover:shadow-2xl`;
+const iconCls =
+  "mb-5 grid h-12 w-12 place-items-center rounded-2xl border border-brand-green/40 bg-brand-green/10 text-brand-green transition group-hover:bg-brand-green group-hover:text-navy";
 
 export default function Home() {
   return (
@@ -94,30 +98,29 @@ export default function Home() {
       </section>
 
       {/* SERVICES: card grid */}
-      <section id="services" className="container-x py-24">
-        <Title small="What we deliver" big="Our services" />
-        <p className="-mt-8 mb-12 text-center">
-          End-to-end technology services to plan, migrate, implement, manage and scale your IT infrastructure.
-        </p>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => {
-            const Ico = serviceIcons[s.slug] ?? Server;
-            return (
-              <article key={s.slug}
-                className="group flex flex-col rounded-3xl border border-line bg-white p-7 transition hover:-translate-y-1 hover:border-brand-pink/40 hover:shadow-xl">
-                <span className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-brand-pink/10 text-brand-pink transition group-hover:bg-brand-pink group-hover:text-white">
-                  <Ico size={24} />
-                </span>
-                <h3 className="mb-2 text-xl font-semibold">{s.title}</h3>
-                <p className="mb-6 flex-1 text-sm leading-relaxed">{s.text}</p>
-                <Link href={`/services/${s.slug}`} className="inline-flex items-center gap-1 text-sm font-semibold text-brand-pink">
-                  View details <ArrowRight size={16} className="transition group-hover:translate-x-1" />
-                </Link>
-              </article>
-            );
-          })}
-        </div>
-      </section>
+     <section id="services" className="container-x py-24">
+  <Title small="What we deliver" big="Our services" />
+  <p className="-mt-8 mb-12 text-center">
+    End-to-end technology services to plan, migrate, implement, manage and scale your IT infrastructure.
+  </p>
+  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {services.map((s) => {
+      const Ico = serviceIcons[s.slug] ?? Server;
+      return (
+        <article key={s.slug} className={cardCls}>
+          <span className="pointer-events-none absolute -bottom-12 -right-12 -z-10 h-40 w-40 rounded-full bg-brand-green/10 transition group-hover:scale-125" aria-hidden="true" />
+          <span className={iconCls}><Ico size={24} /></span>
+          <p className={eyebrow}>Service</p>
+          <h3 className="mb-2 mt-1 text-xl font-semibold !text-white">{s.title}</h3>
+          <p className="mb-6 flex-1 text-sm leading-relaxed">{s.text}</p>
+          <Link href={`/services/${s.slug}`} className="inline-flex items-center gap-1 text-sm font-semibold text-brand-pink">
+            View details <ArrowRight size={16} className="transition group-hover:translate-x-1" />
+          </Link>
+        </article>
+      );
+    })}
+  </div>
+</section>
 
       {/* FEATURED: dark panel with checklist (network-ie "Featured product" layout) */}
       <section className="relative isolate overflow-hidden bg-navy py-24">
@@ -128,7 +131,7 @@ export default function Home() {
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <div>
             <p className="mb-2 text-sm font-medium text-brand-green">Featured</p>
-            <h2 className="text-3xl font-semibold !text-white sm:text-5xl">Managed IT delivery, nationwide</h2>
+            <h2 className="text-3xl font-semibold capitalize !text-white sm:text-5xl">Managed IT delivery, nationwide</h2>
             <p className="mt-5 max-w-lg text-lg text-white/75">
               A flexible delivery model backed by 4,000+ experts, so your capital and people stay focused on productivity.
             </p>
@@ -149,40 +152,48 @@ export default function Home() {
 
       {/* WHY CHOOSE US */}
       <section className="container-x py-24">
-        <Title small="Why SYSLINK" big="Why choose us" />
-        <div className="grid gap-px overflow-hidden rounded-3xl bg-line md:grid-cols-2 lg:grid-cols-3">
-          {values.map((v) => (
-            <div key={v.a} className="bg-white p-8 transition-colors hover:bg-mist">
-              <span className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-brand-green/10 text-brand-green">
-                <Icon name={v.icon} size={24} />
-              </span>
-              <h3 className="text-xl font-semibold">{v.a} <span className="text-brand-pink">{v.b}</span></h3>
-              <p className="mt-2 text-sm leading-relaxed">{v.t}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+  <Title small="Why SYSLINK" big="Why choose us" />
+  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {values.map((v) => (
+      <article
+        key={v.a}
+        className={`${darkBg} group relative isolate flex flex-col overflow-hidden rounded-3xl border border-white/10 p-7 text-white/75 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-brand-green/50 hover:shadow-2xl`}
+      >
+        <span className="pointer-events-none absolute -bottom-12 -right-12 -z-10 h-40 w-40 rounded-full bg-brand-green/10 transition group-hover:scale-125" aria-hidden="true" />
+        <span className="mb-5 grid h-12 w-12 place-items-center rounded-2xl border border-brand-green/40 bg-brand-green/10 text-brand-green transition group-hover:bg-brand-green group-hover:text-navy">
+          <Icon name={v.icon} size={24} />
+        </span>
+        <h3 className="mb-2 text-xl font-semibold !text-white">{v.a} <span className="text-brand-pink">{v.b}</span></h3>
+        <p className="flex-1 text-sm leading-relaxed">{v.t}</p>
+      </article>
+    ))}
+  </div>
+</section>
 
       {/* FOOTPRINT (kept: header nav links to #footprint) */}
-      <section id="footprint" className="bg-mist py-24">
+      {/* <section id="footprint" className="bg-mist py-24">
         <div className="container-x">
           <Title small="A team of 4,000+ experts reaching you across the country" big="The delivery footprint" />
           <FootprintTabs />
         </div>
-      </section>
+      </section> */}
 
       {/* TECHNOLOGY PARTNERS: grid of chips */}
-      <section id="partners" className="container-x py-24">
-        <Title small="OEM alliances" big="Technology partners" />
-        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 ">
-          {partners.map((p) => (
-            <li key={p}
-              className="grid h-20 place-items-center rounded-2xl border border-line bg-white text-lg font-bold text-slate-400 transition hover:border-brand-pink/40 hover:text-brand-pink hover:shadow-md ">
-              {p}
-            </li>
-          ))}
-        </ul>
-      </section>
+     <section id="partners" className="container-x py-24">
+  <Title small="OEM alliances" big="Technology partners"/>
+  <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+    {partners.map((p) => (
+      <li
+        key={p}
+        className={`${darkBg} group relative isolate grid h-20 place-items-center overflow-hidden rounded-2xl border border-white/10 text-lg font-bold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:border-brand-green/50 hover:text-brand-green hover:shadow-2xl`}
+      >
+        {/* soft decorative glow, same as the service cards */}
+        <span className="pointer-events-none absolute -bottom-8 -right-8 -z-10 h-24 w-24 rounded-full bg-brand-green/10 transition group-hover:scale-125" aria-hidden="true" />
+        {p}
+      </li>
+    ))}
+  </ul>
+</section>
 
       {/* NUMBERS THAT MATTER */}
       <section className="bg-navy py-24">
@@ -200,12 +211,23 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="container-x py-24">
-        <div className="rounded-3xl bg-gradient-to-r from-brand-pink to-brand-pink/80 px-8 py-16 text-center sm:px-16">
-          <p className="mb-2 text-sm font-medium text-white/80">Get started</p>
-          <h2 className="mx-auto max-w-3xl text-3xl font-semibold !text-white sm:text-5xl">Ready to modernize your IT infrastructure?</h2>
-          <p className="mx-auto mt-4 max-w-xl text-white/85">Let's discuss how SYSLINK can plan, migrate and manage it for you.</p>
-          <Link href="/contact" className="btn btn-white mt-8">Schedule meeting</Link>
+       <section className="container-x py-16 lg:py-24">
+        <div className={`${darkBg} relative overflow-hidden rounded-3xl p-8 text-center shadow-2xl sm:p-14`}>
+          <span className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-brand-green/10" aria-hidden="true" />
+          <span className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-green/10" aria-hidden="true" />
+          <div className="relative">
+            <p className={eyebrow}>Get Started</p>
+            <h2 className="mx-auto mt-3 max-w-3xl text-balance text-3xl font-semibold capitalize leading-tight !text-white sm:text-4xl">
+              Ready To Modernize Your IT Infrastructure?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-white/75">
+              Let&apos;s discuss how we can plan, migrate and manage it for you.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Link href="/contact" className="btn btn-pink capitalize">Schedule Meeting</Link>
+              
+            </div>
+          </div>
         </div>
       </section>
     </>
