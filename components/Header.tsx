@@ -7,7 +7,7 @@ import { services,solutions } from "@/lib/data";
 
 const links = [
   ["About Us", "/about"],
-  ["Footprint", "/#footprint"],
+  // ["Footprint", "/#footprint"],
   ["Partners", "/#partners"],
 ];
 

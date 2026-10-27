@@ -57,8 +57,7 @@ export default function Footer() {
         <nav aria-label="Quick links">
           <h5 className={headingCls}>Company</h5>
           <ul className="space-y-2.5 text-sm">
-            <li><Link href="/#footprint" className="hover:text-white">Footprint</Link></li>
-            <li><Link href="/#leadership" className="hover:text-white">Leadership</Link></li>
+            <li><Link href="/about" className="hover:text-white">About Us</Link></li>
             <li><Link href="/#partners" className="hover:text-white">Partners</Link></li>
             <li><Link href="/contact" className="hover:text-white">Contact Us</Link></li>
           </ul>

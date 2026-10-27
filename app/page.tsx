@@ -131,7 +131,7 @@ export default function Home() {
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <div>
             <p className="mb-2 text-sm font-medium text-brand-green">Featured</p>
-            <h2 className="text-3xl font-semibold capitalize !text-white sm:text-5xl">Managed IT delivery, nationwide</h2>
+            <h2 className="text-2xl font-semibold capitalize !text-white sm:text-5xl">Managed IT delivery, nationwide</h2>
             <p className="mt-5 max-w-lg text-lg text-white/75">
               A flexible delivery model backed by 4,000+ experts, so your capital and people stay focused on productivity.
             </p>
@@ -218,7 +218,7 @@ export default function Home() {
           <div className="relative">
             <p className={eyebrow}>Get Started</p>
             <h2 className="mx-auto mt-3 max-w-3xl text-balance text-3xl font-semibold capitalize leading-tight !text-white sm:text-4xl">
-              Ready To Modernize Your IT Infrastructure?
+              Ready to Secure Your Business?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-white/75">
               Let&apos;s discuss how we can plan, migrate and manage it for you.
