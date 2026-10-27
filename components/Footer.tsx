@@ -33,15 +33,25 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-x grid gap-12 py-14 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.3fr]">
+      {/* Main grid: services get a wider column and flow into 2 columns (6 rows each)
+          so the footer stays short and every column starts at the same top line. */}
+      <div className="container-x grid items-start gap-x-10 gap-y-12 py-14 md:grid-cols-2 lg:grid-cols-[1.1fr_2.2fr_0.8fr_1.2fr]">
         <div>
           <p className="text-2xl font-bold text-white">{brand.name}<span className="text-brand-pink">.</span></p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed">{brand.tagline}</p>
         </div>
-        <nav aria-label="Services">
+
+        <nav aria-label="Services" className="md:col-span-2 lg:col-span-1">
           <h4 className="mb-4 font-semibold text-white">Services</h4>
-          <ul className="space-y-2.5 text-sm">{services.map((s) => <li key={s.slug}><Link href={`/services/${s.slug}`} className="hover:text-white">{s.title}</Link></li>)}</ul>
+          <ul className="grid gap-x-8 gap-y-2.5 text-sm leading-snug sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-6">
+            {services.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/services/${s.slug}`} className="inline-block transition-colors hover:text-white">{s.title}</Link>
+              </li>
+            ))}
+          </ul>
         </nav>
+
         <nav aria-label="Quick links">
           <h4 className="mb-4 font-semibold text-white">Quick Links</h4>
           <ul className="space-y-2.5 text-sm">
@@ -51,6 +61,7 @@ export default function Footer() {
             <li><Link href="/contact" className="hover:text-white">Contact Us</Link></li>
           </ul>
         </nav>
+
         <div>
           <h4 className="mb-4 font-semibold text-white">Subscribe</h4>
           <p className="mb-4 text-sm">Get news and updates from our team.</p>
